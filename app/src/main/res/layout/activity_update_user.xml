@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateUser">
+    <EditText
+        android:id="@+id/et_update_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColorHint="@android:color/holo_blue_bright"
+        android:layout_marginStart="10dp"
+        android:imeOptions="actionNext"
+        android:layout_marginEnd="10dp"/>
+    <EditText
+        android:id="@+id/et_update_user_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_update_user_name"
+        android:textColorHint="@android:color/holo_blue_bright"
+        android:layout_marginEnd="10dp"
+        android:imeOptions="actionNext"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"/>
+    <EditText
+        android:id="@+id/et_update_user_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_update_user_email"
+        android:textColorHint="@android:color/holo_blue_bright"
+        android:layout_marginTop="10dp"
+        android:imeOptions="actionNext"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"/>
+    <EditText
+        android:id="@+id/et_update_user_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_update_user_password"
+        android:textColorHint="@android:color/holo_blue_bright"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:imeOptions="actionDone"
+        android:layout_marginTop="10dp"/>
+    <Button
+        android:id="@+id/update_user_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:textAllCaps="false"
+        android:background="@android:color/holo_blue_bright"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/et_update_user_address"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+    <ImageView
+        android:id="@+id/im_login_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    <ImageView
+        android:id="@+id/im_email_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_email_black_24dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/im_login_logo"
+        />
+
+    <EditText
+        android:id="@+id/et_login_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/im_login_logo"
+        android:layout_toEndOf="@id/im_email_icon"
+        android:hint="Emaiil"
+        android:layout_marginEnd="20dp"
+        android:inputType="textEmailAddress"
+        android:textSize="18sp"
+        android:layout_marginTop="40dp"
+        android:imeOptions="actionNext"
+        />
+    <ImageView
+        android:id="@+id/im_password_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/ic_password"
+        android:layout_below="@id/im_email_icon"/>
+        <EditText
+            android:id="@+id/et_login_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_login_email"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"
+            android:layout_toEndOf="@id/im_email_icon"/>
+    <TextView
+        android:id="@+id/tv_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot password? Click here!"
+        android:textStyle="bold|italic"
+        android:fontFamily="casual"
+        android:layout_below="@id/et_login_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tv_not_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Not yet registered? Click here"
+        android:textStyle="bold|italic"
+        android:fontFamily="casual"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/tv_forgot_password"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/black"/>
+    <Button
+        android:id="@+id/bt_login_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="bold"
+        android:layout_below="@id/tv_not_register"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
+</RelativeLayout>
