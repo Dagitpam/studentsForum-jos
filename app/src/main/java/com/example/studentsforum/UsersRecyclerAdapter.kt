@@ -2,9 +2,13 @@ package com.example.studentsforum
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studentsforum.model.Users
@@ -33,8 +37,13 @@ class UsersRecyclerAdapter(private val listUsers: List<Users>, internal var cont
 
         holder.textName.text = listUsers[position].name
         holder.textEmail.text = listUsers[position].email
+         val bmp = BitmapFactory.decodeByteArray(listUsers[position].image,0,listUsers[position].image.size)
+         holder.image.setImageBitmap(bmp)
 
-        //set onClick listener on user's data
+
+
+
+         //set onClick listener on user's data
         holder.itemView.setOnClickListener(View.OnClickListener {
 
             val i = Intent(context, ViewUser::class.java)
@@ -45,6 +54,9 @@ class UsersRecyclerAdapter(private val listUsers: List<Users>, internal var cont
             i.putExtra("email",listUsers[position].email)
             i.putExtra("address",listUsers[position].address)
             i.putExtra("password",listUsers[position].password)
+            i.putExtra("image", listUsers[position].image)
+
+
 
             i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             context.startActivity(i)
@@ -58,10 +70,14 @@ class UsersRecyclerAdapter(private val listUsers: List<Users>, internal var cont
     inner class UserViewHolder(view: View): RecyclerView.ViewHolder(view){
         val textName : TextView
         var textEmail : TextView
+        var image : ImageView
+
 
         init {
             textName = view.findViewById(R.id.user_name) as TextView
             textEmail = view.findViewById(R.id.User_email) as TextView
+            image = view.findViewById(R.id.im_profile_img) as ImageView
+
 
 
         }

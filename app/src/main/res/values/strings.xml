@@ -9,7 +9,10 @@
         <item>Select state of origin</item>
         <item>FCT Abuja</item>
         <item>Abia state</item>
-        <item>Adamawa state</item>
-        <item>Plateau state</item>
+        <item>Adamawa</item>
+        <item>Plateau</item>
+        <item>Bauchi</item>
+        <item>Nasarawa</item>
+        <item>Taraba</item>
     </string-array>
 </resources>

@@ -14,7 +14,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     //Create a table that will perform our SQL query
     private val CREATE_USER_TABLE = ("CREATE TABLE " + TABLE_NAME + "("
             + COLUMN_USER_ID+ " INTEGER PRIMARY KEY AUTOINCREMENT,"+ COLUMN_USER_NAME+ " TEXT,"+
-            COLUMN_USER_EMAIL+ " TEXT,"+ COLUMN_USER_PASSWORD+ " TEXT,"+ COLUMN_USER_ADDRESS+ " TEXT"+ ")"
+            COLUMN_USER_EMAIL+ " TEXT,"+ COLUMN_USER_PASSWORD+ " TEXT,"+ COLUMN_USER_ADDRESS+ " TEXT,"+ COLUMN_USER_IMAGE+ " BLOB"+ ")"
             )
 
     //Create query to drop our table. Note the dollar sign references the  or point to table name
@@ -43,6 +43,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     //A function that add users records
 
     fun addUser(users:Users){
+        //convert bitmap to byte
+        
         //db is an instance of the writable database that aid us to write to or update our db
         val db = this.writableDatabase
         //create an instance of the contents of the value. content value is a pair to pair key and value.
@@ -51,6 +53,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         values.put(COLUMN_USER_EMAIL,users.email)
         values.put(COLUMN_USER_PASSWORD,users.password)
         values.put(COLUMN_USER_ADDRESS,users.address)
+        values.put(COLUMN_USER_IMAGE,users.image)
+
 
     db.insert(TABLE_NAME,null, values)
         db.close()
@@ -148,6 +152,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         values.put(COLUMN_USER_EMAIL,user.email)
         values.put(COLUMN_USER_PASSWORD,user.password)
         values.put(COLUMN_USER_ADDRESS,user.address)
+        values.put(COLUMN_USER_IMAGE,user.image)
 
         db.update(TABLE_NAME,values,"$COLUMN_USER_ID=?",
             arrayOf(user.id.toString()))
@@ -158,7 +163,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     {
         //array of columns to fetch from
         val columns = arrayOf(COLUMN_USER_ID, COLUMN_USER_NAME, COLUMN_USER_EMAIL,
-            COLUMN_USER_PASSWORD, COLUMN_USER_ADDRESS)
+            COLUMN_USER_PASSWORD, COLUMN_USER_ADDRESS, COLUMN_USER_IMAGE)
         //Sorting order
         val sortOrder = "$COLUMN_USER_NAME ASC"
         val userList = arrayListOf<Users>()
@@ -180,7 +185,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                     name = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)),
                     email = cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)),
                     password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD)),
-                    address = cursor.getString(cursor.getColumnIndex(COLUMN_USER_ADDRESS)))
+                    address = cursor.getString(cursor.getColumnIndex(COLUMN_USER_ADDRESS)),
+                    image =cursor.getBlob(cursor.getColumnIndex(COLUMN_USER_IMAGE)) )
+
                 userList.add(user)
             }while (cursor.moveToNext())
         }
@@ -191,7 +198,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
     //WE are having a companion object
     companion object{
-        private val DATABASE_VERSION = 1
+        private val DATABASE_VERSION = 3
         private val DATABASE_NAME = "UsersDB.db"
         private val TABLE_NAME = "users"
 
@@ -200,6 +207,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         private val COLUMN_USER_EMAIL = "user_email"
         private val COLUMN_USER_PASSWORD = "user_password"
         private val COLUMN_USER_ADDRESS = "user_address"
+        private val COLUMN_USER_IMAGE= "user_image"
     }
 
 }

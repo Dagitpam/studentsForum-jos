@@ -9,11 +9,20 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/im_profile_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="10dp"
+            android:src="@drawable/logo"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Name: "
             android:id="@+id/label_name"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/im_profile_img"
             android:textSize="18sp"
             android:textColor="@android:color/black"
             />
@@ -32,8 +41,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/label_email"
             android:text="Email: "
+            android:layout_toEndOf="@id/im_profile_img"
             android:textSize="18sp"
             android:layout_below="@id/label_name"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:textColor="@android:color/black"
             />
@@ -44,10 +55,36 @@
             android:text="Email"
             android:id="@+id/User_email"
             android:textStyle="bold"
+            android:layout_marginTop="10dp"
             android:textSize="18sp"
             android:textColor="@android:color/holo_blue_bright"
             android:layout_below="@id/user_name"
             android:layout_toEndOf="@+id/label_email"/>
+            android:textColor="@android:color/holo_blue_dark"/>
+        <TextView
+            android:id="@+id/user_address_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address: "
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:layout_below="@id/User_email"
+            android:layout_toEndOf="@id/im_profile_img"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp" />
+        <TextView
+            android:id="@+id/user_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:layout_below="@id/User_email"
+            android:layout_toEndOf="@id/user_address_label"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="18sp"/>
+
+
+
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

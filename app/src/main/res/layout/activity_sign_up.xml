@@ -9,11 +9,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
+            android:id="@+id/im_signup_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_account"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="15dp"/>
+          <Button
+              android:id="@+id/bt_signup_upload"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="Upload image"
+              android:textAllCaps="false"
+              android:layout_below="@id/im_signup_image"
+              android:layout_marginStart="50dp"
+              android:layout_marginEnd="50dp"/>
+        <ImageView
             android:id="@+id/im_name_icon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/ic_account"
-            android:layout_marginTop="30dp"/>
+            android:layout_below="@id/bt_signup_upload"
+            android:layout_marginTop="15dp"/>
         <EditText
             android:id="@+id/et_signup_name"
             android:layout_width="match_parent"
@@ -24,7 +41,8 @@
             android:layout_toEndOf="@id/im_name_icon"
             android:layout_marginEnd="20dp"
             android:textSize="18sp"
-            android:layout_marginTop="30dp"
+            android:layout_below="@id/bt_signup_upload"
+            android:layout_marginTop="15dp"
             android:imeOptions="actionNext"/>
         <!--<RadioGroup
             android:id="@+id/gender_group"
@@ -78,50 +96,7 @@
             android:inputType="date"
             android:imeOptions="actionNext"
             />
-        <RadioGroup
-            android:id="@+id/status_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal"
-            android:layout_marginEnd="20dp"
-            android:layout_below="@id/et_signup_dob">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="Gender"/>
 
-            <RadioButton
-                android:id="@+id/marital_single"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Single"
-                android:textColorHint="@android:color/black"
-                android:textIsSelectable="true"/>
-            <RadioButton
-                android:id="@+id/marital_married"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Married"
-                android:textColorHint="@android:color/black"
-                android:textIsSelectable="true" />
-            <RadioButton
-                android:id="@+id/marital_divorce"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Divorce"
-                android:textColorHint="@android:color/black"
-                android:textIsSelectable="true" />
-        </RadioGroup>
-        <Spinner
-            android:id="@+id/sp_signup_soo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/status_group"
-            android:layout_marginTop="15dp"
-            android:entries="@array/state"
-            android:layout_marginStart="20dp"/>
         <LinearLayout
             android:id="@+id/checkbox_group"
             android:layout_width="wrap_content"
@@ -130,33 +105,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="10dp"
             android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hobbies"
-                android:textSize="18sp"/>
-            <CheckBox
-                android:id="@+id/cb_hobbies1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Singing"
-                android:textSize="14sp"
-                android:textColorHint="@android:color/black"
-                />
-            <CheckBox
-                android:id="@+id/cb_hobbies2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Dancing"
-                android:textSize="14sp"
-                android:textColorHint="@android:color/black"/>
-            <CheckBox
-                android:id="@+id/cb_hobbies3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Coding"
-                android:textSize="14sp"
-                android:textColorHint="@android:color/black"/>
+
         </LinearLayout>-->
         <!--<ImageView
             android:id="@+id/im_phone_icon"
@@ -248,6 +197,136 @@
             android:imeOptions="actionDone"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="15dp"/>
+        <ImageView
+            android:id="@+id/im_state_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_state"
+            android:layout_below="@id/im_address_icon"
+            android:layout_marginTop="20dp"/>
+        <Spinner
+            android:id="@+id/sp_signup_soo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_signup_address"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@id/im_state_icon"
+            android:entries="@array/state"
+            android:layout_marginStart="20dp"/>
+        <TextView
+            android:id="@+id/tv_gender_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sp_signup_soo"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:text="Gender"/>
+        <ImageView
+            android:id="@+id/im_gender_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_gender"
+            android:layout_below="@id/tv_gender_title"/>
+        <RadioGroup
+            android:id="@+id/rb_gender_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/im_gender_icon"
+            android:layout_below="@id/tv_gender_title">
+
+            <RadioButton
+                android:id="@+id/rb_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Male"
+                android:textColorHint="@android:color/black"
+                android:textIsSelectable="true"/>
+            <RadioButton
+                android:id="@+id/rb_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Female"
+                android:textColorHint="@android:color/black"
+                android:textIsSelectable="true" />
+        </RadioGroup>
+        <TextView
+            android:id="@+id/tv_track_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Track"
+            android:layout_below="@id/rb_gender_group"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"/>
+        <ImageView
+            android:id="@+id/im_tract_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_track"
+            android:layout_below="@id/tv_track_title"/>
+        <CheckBox
+            android:id="@+id/cb_mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Mobile"
+            android:textSize="14sp"
+            android:layout_below="@id/tv_track_title"
+            android:layout_marginStart="40dp"
+            android:textColorHint="@android:color/black"
+            />
+        <CheckBox
+            android:id="@+id/cb_webfront"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Web front"
+            android:textSize="14sp"
+            android:layout_below="@id/tv_track_title"
+            android:layout_toRightOf="@id/cb_mobile"
+            android:textColorHint="@android:color/black"/>
+        <CheckBox
+            android:id="@+id/cb_webback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Web back"
+            android:textSize="14sp"
+            android:layout_below="@+id/tv_track_title"
+            android:layout_toEndOf="@id/cb_webfront"
+            android:textColorHint="@android:color/black"
+            />
+        <CheckBox
+            android:id="@+id/cb_arvr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="AR/VR"
+            android:textSize="14sp"
+            android:layout_below="@+id/im_tract_icon"
+            android:layout_marginStart="40dp"
+            android:textColorHint="@android:color/black"/>
+        <CheckBox
+            android:id="@+id/cb_digital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Digital marketing"
+            android:textSize="14sp"
+            android:layout_below="@+id/im_tract_icon"
+            android:layout_toEndOf="@id/cb_arvr"
+            android:textColorHint="@android:color/black"/>
+        <CheckBox
+            android:id="@+id/cb_uiux"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="UI/UX"
+            android:textSize="14sp"
+            android:layout_below="@+id/im_tract_icon"
+            android:layout_toEndOf="@id/cb_digital"
+            android:textColorHint="@android:color/black"/>
+
+
         <Button
             android:id="@+id/bt_signup_submit"
             android:layout_width="match_parent"
@@ -255,11 +334,12 @@
             android:text="Sign Up"
             android:fontFamily="sans-serif-black"
             android:textStyle="bold"
-            android:layout_below="@id/et_signup_address"
             android:layout_marginTop="30dp"
+            android:layout_below="@id/cb_arvr"
             android:background="@color/colorPrimary"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"/>
+
 
     </RelativeLayout>
     
